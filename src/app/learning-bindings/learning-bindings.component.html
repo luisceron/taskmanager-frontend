@@ -17,7 +17,7 @@
 <strong>Valor da variavel "userName": </strong>{{ userName }}
 
 <br>
-<input placeholder="Event KeyDown" type="text" on-keydown="onKeyDown($event)" value="{{ userName }}">
+<input placeholder="Event KeyDown" type="text" [(ngModel)]="userName">
 <strong>Valor da variavel "userName": </strong>{{ userName }}
 
 
@@ -28,11 +28,11 @@
 <strong>Valor da variavel "userEmail": </strong>{{ userEmail }}
 
 <br>
-<input placeholder="Event KeyUp" type="text" on-keyup="onKeyUp($event)" value="{{ userEmail }}">
+<input placeholder="Event KeyUp" type="text" [ngModel]="userEmail" (ngModelChange)="userEmail=$event">
 <strong [class.bg-red]="mouseClickCount > 3">Valor da variavel "userEmail": </strong>{{ userEmail }}
 
 <style type="text/css">
-	.bg-red {
-		background-color: red;
-	}
+  .bg-red {
+    background-color: red;
+  }
 </style>

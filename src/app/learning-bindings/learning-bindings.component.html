@@ -1,24 +1,38 @@
 <h3>Studying Bindings</h3>
 
-<button (click)="onClick()"> Event (click)</button>
-<button on-click="onClick()"> Event on-click</button>
+<button (click)="onClick()"> Event (click) {{ mouseClickCount }}</button>
+<button on-click="onClick()"> Event on-click {{ mouseClickCount }}</button>
 
 <br><br>
 
 
-<button (mouseover)="onMouseOver()"> Event (mouseover)</button>
-<button on-mouseover="onMouseOver()"> Event on-mouseover</button>
+<button (mouseover)="onMouseOver()"> Event (mouseover) {{ mouseOverCount }}</button>
+<button on-mouseover="onMouseOver()"> Event on-mouseover {{ mouseOverCount }}</button>
 
 
 <hr>
 
 
-<input placeholder="Event KeyDown" type="text" (keydown)="onKeyDown()">
-<input placeholder="Event KeyDown" type="text" on-keydown="onKeyDown()">
+<input placeholder="Event KeyDown" type="text" (keydown)="onKeyDown($event)" [value]="userName">
+<strong>Valor da variavel "userName": </strong>{{ userName }}
+
+<br>
+<input placeholder="Event KeyDown" type="text" on-keydown="onKeyDown($event)" value="{{ userName }}">
+<strong>Valor da variavel "userName": </strong>{{ userName }}
 
 
 <br><br>
 
 
-<input placeholder="Event KeyUp" type="text" (keyup)="onKeyUp()">
-<input placeholder="Event KeyUp" type="text" on-keyup="onKeyUp()">
+<input placeholder="Event KeyUp" type="text" (keyup)="onKeyUp($event)" [value]="userEmail">
+<strong>Valor da variavel "userEmail": </strong>{{ userEmail }}
+
+<br>
+<input placeholder="Event KeyUp" type="text" on-keyup="onKeyUp($event)" value="{{ userEmail }}">
+<strong [class.bg-red]="mouseClickCount > 3">Valor da variavel "userEmail": </strong>{{ userEmail }}
+
+<style type="text/css">
+	.bg-red {
+		background-color: red;
+	}
+</style>

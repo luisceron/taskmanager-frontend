@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Task } from '../shared/task.model';
 
@@ -8,7 +8,7 @@ import { Task } from '../shared/task.model';
 })
 
 export class TaskDetailComponent {
-  public task: Task;
+  @Input() public task: Task;
 
   public constructor() { }
 }

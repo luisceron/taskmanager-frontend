@@ -17,7 +17,8 @@ const TASKS: Array<Task> = [
 export class TaskService {
 
   public getTasks(): Promise<Task[]> {
-    let promise = new Promise( (resolve, reject) => {
+    // let promise = new Promise( (resolve, reject) => {
+    return new Promise( (resolve, reject) => {
       if (TASKS.length > 0) {
         resolve(TASKS);
       } else {
@@ -26,7 +27,7 @@ export class TaskService {
       }
     });
 
-    return promise;
+    // return promise;
   }
 
   public getImportantTasks(): Promise<Task[]> {

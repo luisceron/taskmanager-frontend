@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Task }        from "../tasks/shared/task.model";
+import { Task } from "../tasks/shared/task.model";
 import { TaskService } from "../tasks/shared/task.service";
 
 @Component({
@@ -11,11 +11,11 @@ import { TaskService } from "../tasks/shared/task.service";
 export class DashboardComponent implements OnInit {
   public tasks: Task[];
 
-  public constructor(private taskService: TaskService) {
+  public constructor(private taskService: TaskService){
   }
 
-  public ngOnInit() {
+  public ngOnInit(){
     this.taskService.getImportantTasks()
-      .then( (tasks) => this.tasks = tasks );
+      .subscribe((tasks) => this.tasks = tasks);
   }
 }

@@ -14,11 +14,11 @@ export class TasksComponent implements OnInit {
 
   public constructor(private taskService: TaskService) { }
 
-  public ngOnInit() {
+  public ngOnInit(){
     this.taskService.getTasks()
       .subscribe(
         tasks => this.tasks = tasks,
-        error => alert("Ocorreu um erro no servidor, tente mais tarde")
+        error => alert("Ocorreu um no servidor, tente mais tarde.")
       )
   }
 

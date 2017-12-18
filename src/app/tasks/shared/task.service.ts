@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
 
 import { Task } from "./task.model";
 
@@ -14,13 +16,15 @@ export class TaskService {
 
   public constructor(private http: Http){}
 
-  public getTasks(): Observable<Task[]>{
+  public getTasks(): Observable<Task[]> {
     return this.http.get(this.tasksUrl)
+      .catch(this.handleErrors)
       .map((response: Response) => response.json() as Task[])
   }
 
   public getImportantTasks(): Observable<Task[]>{
     return this.getTasks()
+      .catch(this.handleErrors)
       .map(tasks => tasks.slice(0, 4));
   }
 
@@ -28,7 +32,13 @@ export class TaskService {
     let url = `${this.tasksUrl}/${id}`;
 
     return this.http.get(url)
+      .catch(this.handleErrors)
       .map((response: Response) => response.json() as Task)
+  }
+
+  private handleErrors(error: Response){
+    console.log("SALVANDO O ERRO NUM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);
+    return Observable.throw(error);
   }
 
 }

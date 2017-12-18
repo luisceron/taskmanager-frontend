@@ -26,7 +26,7 @@ export class TaskService {
 
   public getTasks(): Observable<Task[]>{
     return this.http.get(this.tasksUrl)
-      .map((response: Response) => response.json().data as Task[])
+      .map((response: Response) => response.json() as Task[])
   }
 
   public getImportantTasks(): Observable<Task[]>{
@@ -38,7 +38,7 @@ export class TaskService {
     let url = `${this.tasksUrl}/${id}`;
 
     return this.http.get(url)
-      .map((response: Response) => response.json().data as Task)
+      .map((response: Response) => response.json() as Task)
   }
 
 }

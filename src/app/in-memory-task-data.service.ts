@@ -12,7 +12,7 @@ export class InMemoryTaskDataService implements InMemoryDbService {
       { id: 2, title: 'Pagar boleto' },
       { id: 3, title: 'Pagar internet' },
       { id: 4, title: 'Assistir aula sobre Rails' },
-      { id: 5, title: 'Assisitr aula sobre Angular' },
+      { id: 5, title: 'Assistir aula sobre Angular' },
       { id: 6, title: 'Comprar Pizza' },
       { id: 7, title: 'Pagar Aluguel' }
     ];
